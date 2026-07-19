@@ -45,11 +45,24 @@
   position: sticky;
   top: 0;
   z-index: 100;
+  border-bottom: 1px solid var(--clr-border);
+  transition: box-shadow var(--dur-fast) ease;
+}
+/*
+  The frosted-glass background lives on ::before (not on .site-header
+  itself) because backdrop-filter — like transform/filter — silently makes
+  an element the positioning containing block for any position:fixed
+  descendant. .main-nav (the mobile menu) is position:fixed and needs to
+  size itself against the real viewport, not the header's own small box.
+*/
+.site-header::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
   background: var(--clr-surface-glass);
   backdrop-filter: saturate(180%) blur(14px);
   -webkit-backdrop-filter: saturate(180%) blur(14px);
-  border-bottom: 1px solid var(--clr-border);
-  transition: box-shadow var(--dur-fast) ease;
 }
 
 .header-inner {
@@ -81,14 +94,20 @@
 .brand-name-sub { font-size: 0.62rem; letter-spacing: .09em; text-transform: uppercase; color: var(--clr-text-muted); }
 
 .main-nav ul { display: flex; gap: 26px; }
-.main-nav a {
+/*
+  Scoped to "ul a" (not just "a") on purpose: .main-nav also contains the
+  standalone .header-cta-mobile button link as a sibling of <ul>, which
+  must keep its own .btn/.btn-primary styling (white text on a solid
+  background), not the plain nav-link treatment below.
+*/
+.main-nav ul a {
   font-weight: 500;
   font-size: 0.92rem;
   color: var(--clr-text);
   position: relative;
   padding-block: 4px;
 }
-.main-nav a::after {
+.main-nav ul a::after {
   content: "";
   position: absolute;
   left: 0; right: 0; bottom: -2px;
@@ -98,7 +117,7 @@
   transform-origin: left;
   transition: transform var(--dur-fast) ease;
 }
-.main-nav a:hover::after, .main-nav a.is-active::after { transform: scaleX(1); }
+.main-nav ul a:hover::after, .main-nav ul a.is-active::after { transform: scaleX(1); }
 
 .header-cta { flex-shrink: 0; }
 
@@ -140,7 +159,7 @@
   }
   .main-nav.is-open { opacity: 1; transform: translateY(0); pointer-events: auto; }
   .main-nav ul { flex-direction: column; gap: 0; padding: 8px 20px 20px; }
-  .main-nav a { display: block; padding: 16px 4px; font-size: 1.1rem; border-bottom: 1px solid var(--clr-border); }
+  .main-nav ul a { display: block; padding: 16px 4px; font-size: 1.1rem; border-bottom: 1px solid var(--clr-border); }
   .main-nav .header-cta-mobile { display: block; margin: 20px 20px 30px; }
 }
 @media (min-width: 901px) {
