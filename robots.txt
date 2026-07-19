@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://kanagasundar.github.io/iyarkai-n-aura/sitemap.xml

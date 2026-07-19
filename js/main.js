@@ -1,5 +1,6 @@
 import { loadSiteData } from "./data-loader.js";
 import { qs } from "./utils/dom.js";
+import { applySEO } from "./seo.js";
 
 import { renderAnnouncement } from "./components/announcement.js";
 import { renderNav } from "./components/nav.js";
@@ -28,7 +29,7 @@ async function boot() {
     return;
   }
 
-  applySEO(data.site.seo, data.site.brand);
+  applySEO({ site: data.site, products: data.products, reviews: data.reviews, faq: data.faq });
 
   renderAnnouncement(qs("#announcement"), data.site);
   renderNav(qs("#site-header"), data.site);
@@ -57,39 +58,6 @@ async function boot() {
   initCountUp();
 
   document.body.classList.add("is-ready");
-}
-
-function applySEO(seo, brand) {
-  if (!seo) return;
-  if (seo.title) document.title = seo.title;
-
-  const setMeta = (selector, attr, value) => {
-    if (!value) return;
-    const node = document.querySelector(selector);
-    if (node) node.setAttribute(attr, value);
-  };
-
-  setMeta('meta[name="description"]', "content", seo.description);
-  setMeta('meta[name="keywords"]', "content", (seo.keywords || []).join(", "));
-  setMeta('meta[name="theme-color"]', "content", seo.themeColor);
-  setMeta('meta[property="og:title"]', "content", seo.title);
-  setMeta('meta[property="og:description"]', "content", seo.description);
-  setMeta('meta[property="og:image"]', "content", seo.ogImage);
-  setMeta('meta[property="og:url"]', "content", seo.siteUrl);
-  setMeta('meta[name="twitter:title"]', "content", seo.title);
-  setMeta('meta[name="twitter:description"]', "content", seo.description);
-  setMeta('meta[name="twitter:image"]', "content", seo.ogImage);
-
-  const schemaNode = document.querySelector("#schema-org");
-  if (schemaNode && brand) {
-    try {
-      const schema = JSON.parse(schemaNode.textContent);
-      schema.name = brand.name;
-      schemaNode.textContent = JSON.stringify(schema);
-    } catch {
-      /* leave static schema as-is if parsing fails */
-    }
-  }
 }
 
 function renderLoadError() {

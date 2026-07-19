@@ -51,3 +51,22 @@ export function whatsappLink(number, text = "") {
   const base = `https://wa.me/${number}`;
   return text ? `${base}?text=${encodeURIComponent(text)}` : base;
 }
+
+/**
+ * Strip HTML tags/entities down to plain text — the JSON data files use
+ * "&amp;" etc. for safe HTML rendering, but structured data (JSON-LD) and
+ * meta tags need plain text, not HTML.
+ */
+export function toPlainText(html = "") {
+  const node = document.createElement("div");
+  node.innerHTML = String(html);
+  return (node.textContent || "").replace(/\s+/g, " ").trim();
+}
+
+/** Resolve a possibly-relative path/URL against the site's base URL. */
+export function absoluteUrl(path = "", siteUrl = "") {
+  if (!path) return "";
+  if (/^https?:\/\//i.test(path)) return path;
+  if (!siteUrl) return path;
+  return new URL(path, siteUrl).toString();
+}

@@ -122,6 +122,7 @@ css/
 js/
   main.js              Orchestrator — loads data, calls each renderer, boots motion/chrome
   data-loader.js        fetch()es every data/*.json file
+  seo.js                 Builds meta tags + JSON-LD structured data from JSON (see below)
   motion.js             Scroll-reveal / parallax / count-up engine
   chrome.js              Scroll progress bar, sticky header shadow, back-to-top, announcement dismiss
   utils/
@@ -131,6 +132,8 @@ js/
     nav.js, hero.js, stats.js, products.js, whyUs.js, brandStory.js,
     gallery.js, reviews.js, faq.js, cta.js, footer.js, announcement.js,
     floatingActions.js
+robots.txt             Crawler access + sitemap pointer
+sitemap.xml             Single-page sitemap (update <lastmod> after major content changes)
 ```
 
 Adding a brand-new section (rare — most changes only need JSON edits):
@@ -169,10 +172,46 @@ limitation does not apply once deployed — no server setup needed there.
    within a minute.
 4. Every future `git push` to that branch redeploys automatically.
 
-If you're using a custom domain, update `data/site.json → seo.siteUrl`
-and the `<link rel="canonical">` / `og:url` tags in `index.html` to match.
+If you're using a custom domain, update `data/site.json → seo.siteUrl` to
+match — `js/seo.js` reads that one value and propagates it everywhere
+(canonical link, Open Graph/Twitter tags, and every JSON-LD `url`/`@id`).
+The static tags in `index.html`'s `<head>` are a no-JS fallback for the
+same values and should be updated too if you change domains.
 
 ---
+
+## SEO
+
+Almost everything search-engine-facing is generated at runtime by
+`js/seo.js`, straight from the same JSON that drives the page, so there's
+nothing extra to maintain:
+
+- **Meta tags** — title, description, keywords, canonical URL, Open Graph
+  and Twitter Card tags, all sourced from `data/site.json → seo`.
+- **JSON-LD structured data** — injected fresh on every page load:
+  - `Organization` + `HealthAndBeautyBusiness` — name, description, logo,
+    phone, email, postal address and social links, straight from
+    `site.json → brand` and `contact`, plus an `AggregateRating` computed
+    live from `data/reviews.json`.
+  - One `Product` entry per item in `data/products.json` (name, image,
+    price, currency, availability) — eligible for Google's product rich
+    results.
+  - `FAQPage` built from every entry in `data/faq.json` — eligible for
+    FAQ rich results.
+- **`robots.txt`** and **`sitemap.xml`** at the site root for crawler
+  discovery. Bump `<lastmod>` in `sitemap.xml` after a significant content
+  update (optional — it's a single-page site, so this mostly matters for
+  re-crawl timing, not ranking).
+
+Because this all comes from `data/*.json`, adding a product or an FAQ
+automatically adds a matching rich-result-eligible entry — no separate
+"SEO" step required.
+
+To sanity-check the generated structured data any time, open the live
+(or locally-served) page, view source of the rendered DOM (not the raw
+HTML file — it's injected by JS), and paste the contents of each
+`<script type="application/ld+json">` tag into
+[Google's Rich Results Test](https://search.google.com/test/rich-results).
 
 ## Design notes
 
@@ -195,11 +234,9 @@ and the `<link rel="canonical">` / `og:url` tags in `index.html` to match.
 
 ## Editable placeholders still in `data/site.json`
 
-Search `data/site.json` for these and replace with your real details
-before going live:
-
-- `contact.phoneDisplay` / `phoneHref` / `whatsappNumber` — currently `+91 98765 43210`
-- `contact.email` — currently `hello@iyarkainaura.com`
-- `contact.addressLines` — currently `"Your Store Address, City, Tamil Nadu – 6xxxxx"`
-- `contact.instagram.url` / `contact.facebook.url` — currently placeholder handles
-- `seo.siteUrl` — currently `https://example.com/`
+Contact details and the site URL have been filled in with real values.
+One thing worth double-checking: `contact.instagram.url` and
+`contact.facebook.url` currently point to the **same** Instagram link —
+if you have a separate Facebook page, update `contact.facebook.url` to
+that URL (or remove the Facebook icon by clearing the footer social link
+in `js/components/footer.js` if you don't have one).
