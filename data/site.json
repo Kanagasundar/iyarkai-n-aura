@@ -1,0 +1,152 @@
+{
+  "brand": {
+    "name": "Iyarkai'n Aura",
+    "shortName": "Iyarkai'n Aura",
+    "tagline": "Unpack Your Radiant Look",
+    "logoMark": "assets/img/logo-mark.jpg",
+    "logoFull": "assets/img/logo-full.jpg",
+    "initials": "IA"
+  },
+
+  "seo": {
+    "title": "Iyarkai'n Aura — Handmade Natural Skincare & Hair Care",
+    "description": "Iyarkai'n Aura — handmade, 100% natural face creams, herbal hair oils & gels. Chemical-free, cruelty-free, crafted in small batches. Unpack your radiant look.",
+    "keywords": ["natural skincare", "herbal hair oil", "handmade face cream", "Iyarkai'n Aura", "organic cosmetics India", "alkanet root hair oil", "paraben free skincare"],
+    "ogImage": "assets/img/og-cover.jpg",
+    "siteUrl": "https://example.com/",
+    "themeColor": "#2F4A34"
+  },
+
+  "announcement": {
+    "enabled": true,
+    "icon": "leaf",
+    "text": "Handmade in small batches — 100% natural, paraben &amp; cruelty free.",
+    "linkLabel": "Shop Now",
+    "linkHref": "#products"
+  },
+
+  "nav": {
+    "links": [
+      { "label": "Products", "href": "#products" },
+      { "label": "Why Us", "href": "#why-us" },
+      { "label": "Our Story", "href": "#story" },
+      { "label": "Gallery", "href": "#gallery" },
+      { "label": "Reviews", "href": "#reviews" },
+      { "label": "FAQ", "href": "#faq" },
+      { "label": "Contact", "href": "#contact" }
+    ],
+    "ctaLabel": "Shop Now",
+    "ctaHref": "#products"
+  },
+
+  "hero": {
+    "eyebrow": "100% Natural · Handmade · Chemical-Free",
+    "headingLine1": "Nature’s Glow,",
+    "headingLine2": "Bottled With Love.",
+    "subheading": "Handcrafted face creams, herbal hair oils & gels made in small batches from real botanical ingredients — rose, saffron, sandalwood, almond, aloe vera and alkanet root. No parabens, no chemicals, no shortcuts.",
+    "primaryCta": { "label": "View Products", "href": "#products" },
+    "secondaryCta": { "label": "WhatsApp Us", "href": "whatsapp", "icon": "whatsapp" },
+    "image": "assets/img/creams-group.jpg",
+    "imageAlt": "Iyarkai'n Aura handmade face cream jars — Rose, Sandal, Almond, Saffron and Aloe Vera — arranged outdoors on a rock",
+    "badgeValue": "5+",
+    "badgeLabel": "Natural Formulas",
+    "trustBadges": [
+      { "icon": "handmade", "label": "Handmade" },
+      { "icon": "leaf", "label": "Natural Ingredients" },
+      { "icon": "shield", "label": "Paraben Free" },
+      { "icon": "heart", "label": "Cruelty Free" }
+    ]
+  },
+
+  "stats": [
+    { "value": 5, "suffix": "+", "label": "Natural Formulas" },
+    { "value": 100, "suffix": "%", "label": "Handmade &amp; Natural" },
+    { "value": 0, "suffix": "", "label": "Parabens or Chemicals", "displayOverride": "0" },
+    { "value": 20, "suffix": "+", "label": "Verified Customer Reviews" }
+  ],
+
+  "productsSection": {
+    "eyebrow": "Our Bestsellers",
+    "heading": "Handpicked Naturals",
+    "lead": "Every jar and bottle is handcrafted in small batches — enriched with real botanical extracts for visible, gentle results.",
+    "footnote": "Prices shown are MRP-inclusive retail prices. Bulk &amp; gifting orders welcome — get in touch for a custom quote.",
+    "categories": [
+      { "id": "all", "label": "All Products" },
+      { "id": "face-creams", "label": "Face Creams" },
+      { "id": "hair-care", "label": "Hair Care" }
+    ]
+  },
+
+  "whyUs": {
+    "eyebrow": "Why Choose Us",
+    "heading": "Real Ingredients. Real Results.",
+    "lead": "Every product is handcrafted in small batches with ingredients you can actually pronounce — no fillers, no shortcuts.",
+    "image": "assets/img/herbal-oil.jpg",
+    "imageAlt": "Iyarkai'n Aura herbal hair oil bottle surrounded by natural botanical ingredients",
+    "features": [
+      { "icon": "handmade", "title": "Handmade With Love", "description": "Small-batch crafted, never mass-produced — care in every jar." },
+      { "icon": "leaf", "title": "100% Natural", "description": "Rose, saffron, sandalwood, almond, aloe vera &amp; alkanet root — nothing artificial." },
+      { "icon": "shield", "title": "Chemical Free", "description": "Paraben free, sulfate free &amp; gentle enough for daily use." },
+      { "icon": "heart", "title": "Cruelty Free", "description": "Never tested on animals — kind to you and to nature." },
+      { "icon": "sparkle", "title": "Suits All Skin &amp; Hair Types", "description": "Gentle formulas designed for everyday use, for men and women." },
+      { "icon": "star", "title": "Visible, Gentle Results", "description": "Reduces hair fall, nourishes scalp &amp; brightens skin — naturally." }
+    ]
+  },
+
+  "brandStory": {
+    "eyebrow": "Our Story",
+    "heading": "Crafted By Hand, Rooted In Nature",
+    "paragraphs": [
+      "Iyarkai’n Aura began with a simple belief — that skincare and haircare should be as pure as the ingredients nature already gives us. Every cream and every bottle of oil is still mixed, poured and labelled by hand, in small batches, by MK Handicrafts.",
+      "No mass production. No shortcuts. Just real botanical extracts — rose, sandalwood, saffron, almond, aloe vera and alkanet root — blended the way our grandmothers would have trusted.",
+      "When you unpack an Iyarkai’n Aura jar, you’re not just getting a product. You’re getting care, craft and nature, bottled with love."
+    ],
+    "image": "assets/img/brand-story.jpg",
+    "imageAlt": "Iyarkai'n Aura full product collection displayed on a wooden shelf — face creams, hair oils and gels",
+    "cta": { "label": "Meet The Collection", "href": "#products" }
+  },
+
+  "gallerySection": {
+    "eyebrow": "Gallery",
+    "heading": "A Closer Look",
+    "lead": "Real products, real batches, shot exactly as they leave our hands."
+  },
+
+  "reviewsSection": {
+    "eyebrow": "Customer Love",
+    "heading": "Real People. Real Results.",
+    "lead": "We don’t just say it’s good — our customers do."
+  },
+
+  "faqSection": {
+    "eyebrow": "FAQ",
+    "heading": "Good To Know",
+    "lead": "Answers to what customers usually ask us before their first order."
+  },
+
+  "cta": {
+    "heading": "Ready to Unpack Your Radiant Look?",
+    "subheading": "Message us on WhatsApp or give us a call — we’re happy to help you pick the right products.",
+    "primaryCta": { "label": "WhatsApp Us", "href": "whatsapp", "icon": "whatsapp" },
+    "secondaryCta": { "label": "Call Now", "href": "tel", "icon": "phone" }
+  },
+
+  "contact": {
+    "phoneDisplay": "+91 87783 31071",
+    "phoneHref": "+918778331071",
+    "whatsappNumber": "918778331071",
+    "whatsappDefaultText": "Hi, I'd like to know more about Iyarkai'n Aura products",
+    "email": "kanagasundar1996@gmail.com",
+    "addressLines": ["Sundarapuram, Coimbatore,", "Tamil Nadu – 641021"],
+    "instagram": { "handle": "@iyarkainaura", "url": "https://instagram.com/iyarkain_aura" },
+    "facebook": { "handle": "Iyarkai'n Aura", "url": "https://instagram.com/iyarkain_aura" },
+    "mapEmbedUrl": ""
+  },
+
+  "footer": {
+    "about": "Handcrafted skincare & hair care made from real botanical ingredients. Small batches, made with care by MK Handicrafts.",
+    "tagline": "Handmade · Natural · Pure",
+    "copyrightName": "Iyarkai'n Aura",
+    "credit": "Crafted with care by MK Handicrafts."
+  }
+}

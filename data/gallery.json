@@ -1,0 +1,58 @@
+[
+  {
+    "id": "g1",
+    "image": "assets/img/creams-group.jpg",
+    "alt": "Five Iyarkai'n Aura face cream jars arranged outdoors on a rock overlooking a town",
+    "caption": "Our full face cream range, freshly packed",
+    "category": "face-creams"
+  },
+  {
+    "id": "g2",
+    "image": "assets/img/creams-scattered.jpg",
+    "alt": "Iyarkai'n Aura face cream jars scattered on a rock outdoors",
+    "caption": "Handmade in small batches, every single time",
+    "category": "face-creams"
+  },
+  {
+    "id": "g3",
+    "image": "assets/img/hair-oil-dual.jpg",
+    "alt": "Iyarkai'n Aura Alkanet Root Hair Oil, comb-tip and spray applicator bottles",
+    "caption": "Comb-tip or spray — your choice of applicator",
+    "category": "hair-care"
+  },
+  {
+    "id": "g4",
+    "image": "assets/img/herbal-oil.jpg",
+    "alt": "Iyarkai'n Aura herbal hair oil bottle with natural botanical ingredients",
+    "caption": "Real botanicals, not just labels",
+    "category": "hair-care"
+  },
+  {
+    "id": "g5",
+    "image": "assets/img/shelf-collection-2.jpg",
+    "alt": "Iyarkai'n Aura face cream jars stacked on a wooden shelf",
+    "caption": "Fresh off the shelf and ready to ship",
+    "category": "face-creams"
+  },
+  {
+    "id": "g6",
+    "image": "assets/img/hair-oil-single.jpg",
+    "alt": "Iyarkai'n Aura Alkanet Root Hair Oil bottle on a rock outdoors",
+    "caption": "Small-batch bottled, always by hand",
+    "category": "hair-care"
+  },
+  {
+    "id": "g7",
+    "image": "assets/img/shelf-collection-1.jpg",
+    "alt": "Full Iyarkai'n Aura product collection on a wooden shelf — face creams, hair oils and gels",
+    "caption": "Our growing family of natural formulas",
+    "category": "all"
+  },
+  {
+    "id": "g8",
+    "image": "assets/img/almond-cream.jpg",
+    "alt": "Close-up of Iyarkai'n Aura Almond Face Cream jar",
+    "caption": "Every label, hand-finished with care",
+    "category": "face-creams"
+  }
+]

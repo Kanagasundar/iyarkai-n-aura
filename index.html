@@ -1,0 +1,129 @@
+<!--
+  IYARKAI'N AURA — JSON-driven landing page
+  ==========================================
+  This page renders ENTIRELY from the JSON files in /data — nothing in this
+  file needs to change when products, reviews, FAQs, gallery photos or
+  contact details change. Edit the JSON, commit, push — GitHub Pages
+  reflects it automatically.
+
+    data/site.json      brand, hero, nav, why-us, story, CTA, contact, footer, SEO
+    data/products.json  every product card on the page
+    data/reviews.json   every testimonial card
+    data/faq.json       every FAQ accordion item
+    data/gallery.json   every gallery photo + lightbox caption
+
+  See README.md for the full JSON schema reference.
+
+  NOTE: fetch() of local JSON is blocked by browsers under file:// — serve
+  this folder with any static server to preview locally (`python -m
+  http.server`, VS Code "Live Server", etc). GitHub Pages serves it over
+  HTTPS automatically, so no setup is needed once deployed.
+-->
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Iyarkai'n Aura — Handmade Natural Skincare &amp; Hair Care</title>
+<meta name="description" content="Iyarkai'n Aura — handmade, 100% natural face creams, herbal hair oils &amp; gels. Chemical-free, cruelty-free, crafted in small batches. Unpack your radiant look.">
+<meta name="keywords" content="natural skincare, herbal hair oil, handmade face cream, organic cosmetics India">
+<meta name="theme-color" content="#2F4A34">
+<link rel="canonical" href="https://example.com/">
+
+<!-- Open Graph -->
+<meta property="og:type" content="website">
+<meta property="og:title" content="Iyarkai'n Aura — Handmade Natural Skincare &amp; Hair Care">
+<meta property="og:description" content="Handmade, 100% natural face creams, herbal hair oils &amp; gels. Chemical-free, cruelty-free, crafted in small batches.">
+<meta property="og:image" content="assets/img/og-cover.jpg">
+<meta property="og:url" content="https://example.com/">
+
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Iyarkai'n Aura — Handmade Natural Skincare &amp; Hair Care">
+<meta name="twitter:description" content="Handmade, 100% natural face creams, herbal hair oils &amp; gels. Chemical-free, cruelty-free, crafted in small batches.">
+<meta name="twitter:image" content="assets/img/og-cover.jpg">
+
+<!-- Schema.org (kept in sync with site.json brand name at runtime) -->
+<script type="application/ld+json" id="schema-org">
+{
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  "name": "Iyarkai'n Aura",
+  "description": "Handmade, 100% natural face creams, herbal hair oils and gels.",
+  "image": "assets/img/og-cover.jpg"
+}
+</script>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700;800&family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+<link rel="preload" as="image" href="assets/img/creams-group.jpg" fetchpriority="high">
+
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='24' fill='%232F4A34'/%3E%3Ctext x='50' y='68' font-family='Georgia,serif' font-size='58' font-weight='700' fill='%23F1E4C3' text-anchor='middle'%3EIA%3C/text%3E%3C/svg%3E">
+
+<link rel="stylesheet" href="css/tokens.css">
+<link rel="stylesheet" href="css/base.css">
+<link rel="stylesheet" href="css/animations.css">
+<link rel="stylesheet" href="css/components.css">
+</head>
+<body>
+
+<div class="scroll-progress" aria-hidden="true"></div>
+<a class="skip-link" href="#main">Skip to content</a>
+
+<!-- Populated from site.json → announcement -->
+<div class="announcement" id="announcement" hidden></div>
+
+<!-- Populated from site.json → brand, nav -->
+<header class="site-header" id="site-header">
+  <div class="container header-inner">
+    <div class="skeleton" style="height:44px;width:220px;"></div>
+  </div>
+</header>
+
+<main id="main">
+  <!-- Populated from site.json → hero -->
+  <section class="hero" id="hero" style="min-height:70vh"></section>
+
+  <!-- Populated from site.json → stats -->
+  <section class="stats-strip" id="stats"></section>
+
+  <!-- Populated from products.json (+ site.json → productsSection) -->
+  <section class="section" id="products"></section>
+
+  <!-- Populated from site.json → whyUs -->
+  <section class="section section-alt" id="why-us"></section>
+
+  <!-- Populated from site.json → brandStory -->
+  <section class="section" id="story"></section>
+
+  <!-- Populated from gallery.json (+ site.json → gallerySection) -->
+  <section class="section section-alt" id="gallery"></section>
+
+  <!-- Populated from reviews.json (+ site.json → reviewsSection) -->
+  <section class="section" id="reviews"></section>
+
+  <!-- Populated from faq.json (+ site.json → faqSection) -->
+  <section class="section section-alt" id="faq"></section>
+
+  <!-- Populated from site.json → cta, contact -->
+  <section class="cta-section" id="contact"></section>
+</main>
+
+<!-- Populated from site.json → brand, nav, contact, footer -->
+<footer class="site-footer" id="site-footer"></footer>
+
+<!-- Populated from site.json → contact -->
+<div id="floating-actions"></div>
+
+<noscript>
+  <div style="padding:60px 20px; text-align:center; font-family:sans-serif; color:#2A2A24;">
+    This page needs JavaScript enabled to load its content from JSON. Please enable JavaScript and reload.
+  </div>
+</noscript>
+
+<script type="module" src="js/main.js"></script>
+</body>
+</html>
